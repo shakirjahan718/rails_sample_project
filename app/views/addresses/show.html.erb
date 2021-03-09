@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Add line1:</strong>
+  <%= @address.add_line1 %>
+</p>
+
+<p>
+  <strong>Add line2:</strong>
+  <%= @address.add_line2 %>
+</p>
+
+<p>
+  <strong>Zipcode:</strong>
+  <%= @address.zipcode %>
+</p>
+
+<%= link_to 'Edit', edit_address_path(@address) %> |
+<%= link_to 'Back', addresses_path %>

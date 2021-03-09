@@ -1,0 +1,11 @@
+class Product < ApplicationRecord
+  # custom message
+  # validates :name, presence: {message: 'should be present'}
+  validates :model, presence: true
+  belongs_to :manufacturer, optional: true
+  has_many :distributions
+
+  #scopes
+  scope :premium, -> { where("price > 10000") }
+  scope :get_by_price, -> (price) { where("price > ?", price) }
+end
