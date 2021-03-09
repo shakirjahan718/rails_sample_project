@@ -20,6 +20,10 @@ class User < ApplicationRecord
     gender == "F" ? "FEMALE" : "MALE"
   end
 
+  def self.authenticate(username , password)
+    self.find_by_name(username)
+  end
+
   # custom validation in rails
   def check_name_unique
     exists = User.find_by_name(first_name + " " + last_name).nil? ? false : true

@@ -1,0 +1,20 @@
+<h1>Login</h1>
+
+<%= form_tag 'get_login' %>
+<div>
+  <%= label_tag "Username" %>
+  <%= text_field_tag :username %>
+</div>
+
+<br>
+
+<div>
+  <%= label_tag "Password" %>
+  <%= password_field_tag :password %>
+</div>
+
+<br>
+
+<div>
+  <%= submit_tag 'Login' %>
+</div>

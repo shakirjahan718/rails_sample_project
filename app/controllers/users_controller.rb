@@ -8,6 +8,27 @@ class UsersController < ApplicationController
     
   end
 
+  def login
+  end
+
+  def get_login
+    # render plain: params.inspect
+    user = User.authenticate(params[:username], params[:password])
+    if user
+      session[:user] = user.id
+      redirect_to root_path
+    else
+      render :login
+    end
+  end
+
+  def logout
+    session.destroy
+    redirect_to root_path
+  end
+  
+  
+
   def display_other_template
     # @users = User.all
     # render 'extras/display_render_template'

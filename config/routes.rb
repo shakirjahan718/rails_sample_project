@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :addresses
+  
   resources :products do
     collection do
       get :premium
@@ -9,6 +10,10 @@ Rails.application.routes.draw do
       get 'set_new_price'
     end
   end
+
+  get 'users/login', as: 'logout'
+  post 'users/logout'
+  post 'users/get_login', as: 'login'
   get 'users/list_users'
   get 'users/my_new_template'
   get 'users/display_other_template'
