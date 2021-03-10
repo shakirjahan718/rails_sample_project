@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  # filters
+  skip_before_action :check_login?, only: [:login]
   
   def list_users
     @users = User.all

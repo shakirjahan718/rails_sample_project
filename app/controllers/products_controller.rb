@@ -1,5 +1,10 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: %i[ show edit update destroy ]
+  # filters
+  before_action :check_login?, only: [:index]
+  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  after_action :write_log
+  prepend_before_action :action1, :action2 
+  # prepend_after_action :action2
 
   # GET /products or /products.json
   def index
@@ -67,6 +72,7 @@ class ProductsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product
+      Rails.logger.info(".............SET PRODUCT................")
       @product = Product.find(params[:id])
     end
 
@@ -74,4 +80,9 @@ class ProductsController < ApplicationController
     def product_params
       params.require(:product).permit(:name, :model, :price)
     end
+
+    def write_log
+      Rails.logger.info("Executing action from #{action_name}")
+    end
+    
 end
