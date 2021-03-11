@@ -8,4 +8,5 @@ class Product < ApplicationRecord
   #scopes
   scope :premium, -> { where("price > 10000") }
   scope :get_by_price, -> (price) { where("price > ?", price) }
+  scope :get_manufacturer_products, -> (manufacturer_id) { where("manufacturer_id = ?", manufacturer_id) }
 end
