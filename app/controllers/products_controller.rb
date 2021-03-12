@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   # filters
-  before_action :check_login?, only: [:index]
+  # before_action :check_login?, only: [:index]
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   after_action :write_log
   prepend_before_action :action1, :action2 
@@ -26,6 +26,9 @@ class ProductsController < ApplicationController
   # GET /products/new
   def new
     @product = Product.new
+    # respond_to do |format|
+    #   format.js
+    # end
   end
 
   # GET /products/1/edit
@@ -38,6 +41,7 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.save
+        format.js{}
         format.html { redirect_to @product, notice: "Product was successfully created." }
         format.json { render :show, status: :created, location: @product }
       else

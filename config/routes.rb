@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'login_url', to: 'users#login', as: 'login'
-  post 'users/logout', as: 'logout'
-  post 'users/get_login'
+  # get 'login_url', to: 'users#login', as: 'login'
+  # post 'users/logout', as: 'logout'
+  # post 'users/get_login'
   get 'users/list_users'
   get 'users/my_new_template'
   get 'users/display_other_template'
