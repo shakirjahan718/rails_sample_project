@@ -8,7 +8,7 @@ class ProductsController < ApplicationController
 
   # GET /products or /products.json
   def index
-    @products = Product.all
+    @products = Product.paginate(page: params[:page])
   end
 
   def premium
