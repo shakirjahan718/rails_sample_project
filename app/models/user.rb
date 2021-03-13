@@ -1,11 +1,11 @@
 class User < ApplicationRecord
   attr_accessor :first_name, :last_name, :timezone
   # validates :first_name, presence: true, length: { minimum: 10 }
-  validates :first_name, presence: {message: "should be present"}
-  validates :last_name, presence: true
-  validates :points, numericality: true
-  validates :age, presence: true, numericality: true
-  validates :name, uniqueness: true
+  # validates :first_name, presence: {message: "should be present"}
+  # validates :last_name, presence: true
+  # validates :points, numericality: true
+  # validates :age, presence: true, numericality: true
+  # validates :name, uniqueness: true
   # custom validation in rails
   # validate :check_name_unique
 

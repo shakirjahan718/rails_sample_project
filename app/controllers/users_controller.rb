@@ -18,6 +18,7 @@ class UsersController < ApplicationController
     user = User.authenticate(params[:username], params[:password])
     if user
       session[:user] = user.id
+      UserMailer.login_email(user).deliver_now
       redirect_to root_path
     else
       render :login
@@ -50,6 +51,7 @@ class UsersController < ApplicationController
     @user.name = @user.full_name
     if @user.save
       redirect_to action: :list_users
+      UserMailer.login_email(@user).deliver_now
     else 
       redirect_to action: :new_user  
     end
@@ -64,7 +66,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :age, :gender, :point, :city_id)
+    params.require(:user).permit(:first_name, :last_name, :age, :gender, :point, :city_id, :email)
   end
   
   

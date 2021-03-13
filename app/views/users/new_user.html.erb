@@ -17,6 +17,9 @@
   <%= f.label :last_name %>
   <%= f.text_field :last_name, class:"text_field", size: 40 %>
 
+  <%= f.label :email %>
+  <%= f.text_field :email, class:"text_field", size: 40 %>
+
   <%= f.label :city %>
   <%= f.collection_select :city_id, City.all, :id , :name, prompt: "Please celect city"%>
   <%#= f.select :city_id, City.all.collect(&:name) %>
