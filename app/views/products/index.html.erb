@@ -25,7 +25,11 @@
     <% end %>
   </tbody>
 </table>
-<%= will_paginate @products %>
+<%#= will_paginate @products %>
+<%#= will_paginate @products, :page_links => false %>
+<div class="digg_pagination">
+    <%= will_paginate @products, :container => false %>
+  </div>
 <br>
 
 <div id="new_product">
